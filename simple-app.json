@@ -16,7 +16,7 @@
         "service": {
           "class": "Service_HTTP",
           "virtualAddresses": [
-            "10.0.1.10"
+            "10.0.1.12"
           ],
           "pool": "web_pool"
         },
