@@ -6,7 +6,7 @@ terraform {
   required_providers {
     bigip = {
       source  = "F5Networks/bigip"
-      version = "1.22.7"
+      version = "1.22.9"
     }
   }
   required_version = ">= 0.13"
@@ -19,11 +19,3 @@ provider "bigip" {
   port     = 8443
 }
 
-resource "bigip_as3" "sample-app" {
-  as3_json = file("simple-app.json")
-}
-
-resource "bigip_as3" "simple-per-app" {
-  as3_json    = file("simple-per-app.json")
-  tenant_name = "Sample_02"
-}

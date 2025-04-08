@@ -1,0 +1,32 @@
+{
+    "id": "per-app-declaration",
+    "schemaVersion": "3.50.0",
+    "controls": {
+        "class": "Controls",
+        "logLevel": "debug",
+        "trace": true
+    },
+    "per_app_deployment": {
+        "class": "Application",
+        "per_app_lb": {
+            "class": "Service_HTTP",
+            "virtualAddresses": ${jsonencode(virtual_addresses)},
+            "shareAddresses": true,
+            "virtualPort": ${virtual_port},
+            "pool": "per_app_pool"
+        },
+        "per_app_pool": {
+            "class": "Pool",
+            "monitors": [
+                "http"
+            ],
+            "members": ${jsonencode([
+            for member in members : {
+              servicePort     = member.port
+              shareNodes = true
+              serverAddresses = [member.address]
+            }
+          ])}
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "id": "per-app-declaration",
+    "schemaVersion": "3.50.0",
+    "controls": {
+        "class": "Controls",
+        "logLevel": "debug",
+        "trace": true
+    },
+    "Application3": {
+        "class": "Application",
+        "service3": {
+            "class": "Service_HTTP",
+            "virtualAddresses": [
+                "10.2.1.7"
+            ],
+            "shareAddresses": true,
+            "virtualPort": 8083,
+            "pool": "app_3_pool",
+            "policyWAF": {
+                "use": "remote_asm_policy"
+            }
+        },
+        "app_3_pool": {
+            "class": "Pool",
+            "members": [
+                {
+                    "servicePort": 80,
+                    "shareNodes": true,
+                    "serverAddresses": [
+                        "10.0.1.6"
+                    ]
+                }
+            ]
+        },
+        "remote_asm_policy": {
+            "class": "WAF_Policy",
+            "url": "https://raw.githubusercontent.com/s-archer/waf_policies/refs/heads/master/owasp.json",
+            "ignoreChanges": true
+        }
+    }
+}

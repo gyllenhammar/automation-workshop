@@ -1,0 +1,38 @@
+{
+    "id": "per-app-declaration",
+    "schemaVersion": "3.50.0",
+    "controls": {
+        "class": "Controls",
+        "logLevel": "debug",
+        "trace": true
+    },
+    "Application1": {
+        "class": "Application",
+        "service1": {
+            "class": "Service_HTTP",
+            "virtualAddresses": [
+                "10.2.1.7"
+            ],
+            "shareAddresses": true,
+            "virtualPort": 8081,
+            "pool": "app_1_pool",
+            "HTTP_Profile": "http_xff_profile"
+        },
+        "app_1_pool": {
+            "class": "Pool",
+            "members": [
+                {
+                    "servicePort": 80,
+                    "shareNodes": true,
+                    "serverAddresses": [
+                        "10.0.1.4"
+                    ]
+                }
+            ]
+        },
+        "http-xff-profile": {
+            "class": "HTTP_Profile",
+            "xForwardedFor": true
+        }
+    }
+}

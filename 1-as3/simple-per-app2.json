@@ -1,0 +1,37 @@
+{
+    "id": "per-app-declaration",
+    "schemaVersion": "3.50.0",
+    "controls": {
+        "class": "Controls",
+        "logLevel": "debug",
+        "trace": true
+    },
+    "Application2": {
+        "class": "Application",
+        "service2": {
+            "class": "Service_HTTP",
+            "virtualAddresses": [
+                "10.2.1.7"
+            ],
+            "shareAddresses": true,
+            "virtualPort": 8082,
+            "pool": "app_2_pool",
+            "persistenceMethods": [
+                "source-address"
+            ]
+        },
+        "app_2_pool": {
+            "class": "Pool",
+            "members": [
+                {
+                    "servicePort": 80,
+                    "shareNodes": true,
+                    "serverAddresses": [
+                        "10.0.1.4",
+                        "10.0.1.5"
+                    ]
+                }
+            ]
+        }
+    }
+}

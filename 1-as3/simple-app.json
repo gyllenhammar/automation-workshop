@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/F5Networks/f5-appsvcs-extension/main/schema/latest/as3-schema.json",
+  "class": "AS3",
+  "action": "deploy",
+  "persist": true,
+  "declaration": {
+    "class": "ADC",
+    "schemaVersion": "3.0.0",
+    "label": "Sample 1",
+    "remark": "Simple HTTP Service with Round-Robin Load Balancing",
+    "Sample_01": {
+      "class": "Tenant",
+      "App1": {
+        "class": "Application",
+        "service": {
+          "class": "Service_HTTP",
+          "virtualAddresses": [
+            "10.2.1.7"
+          ],
+          "virtualPort": 80,
+          "shareAddresses": true,
+          "pool": "nginx_pool"
+        },
+        "nginx_pool": {
+          "class": "Pool",
+          "monitors": [
+            "http"
+          ],
+          "members": [
+            {
+              "servicePort": 80,
+              "shareNodes": true,
+              "serverAddresses": [
+                "10.2.1.4",
+                "10.2.1.5",
+                "10.2.1.6"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -6,18 +6,17 @@
   "declaration": {
     "class": "ADC",
     "schemaVersion": "3.0.0",
-    "id": "urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d",
     "label": "Sample 1",
     "remark": "Simple HTTP Service with Round-Robin Load Balancing",
-    "Sample_01": {
+    "${tenant}": {
       "class": "Tenant",
       "A1": {
         "class": "Application",
-        "service": {
+        "template_lb": {
           "class": "Service_HTTP",
-          "virtualAddresses": [
-            "10.0.1.12"
-          ],
+          "virtualAddresses": ${jsonencode(virtual_addresses)},
+          "virtualPort": ${virtual_port},
+          "shareAddresses": true,
           "pool": "web_pool"
         },
         "web_pool": {
@@ -25,15 +24,13 @@
           "monitors": [
             "http"
           ],
-          "members": [
-            {
-              "servicePort": 80,
-              "serverAddresses": [
-                "192.0.1.10",
-                "192.0.1.11"
-              ]
+          "members": ${jsonencode([
+            for member in members : {
+              servicePort     = member.port
+              shareNodes = true
+              serverAddresses = [member.address]
             }
-          ]
+          ])}
         }
       }
     }
