@@ -1,6 +1,6 @@
 
 locals {
-  poolmembers = ["10.2.1.4:80", "10.2.1.5:80", "10.2.1.6:80"]
+  poolmembers = ["10.2.1.4", "10.2.1.5", "10.2.1.6"]
 }
 
 resource "bigip_partition" "partition" {
@@ -26,10 +26,18 @@ resource "bigip_ltm_virtual_server" "virtual-server" {
   depends_on = [bigip_partition.partition, bigip_ltm_pool.pool]
 }
 
+resource "bigip_ltm_node" "nodes" {
+  count   = length(local.poolmembers)
+  address = local.poolmembers[count.index]
+  name    = "/${bigip_partition.partition.name}/node-${count.index}"
+}
 
-resource "bigip_ltm_pool_attachment" "node1" {
-  for_each = toset(local.poolmembers)
-  pool     = bigip_ltm_pool.pool.name
-  node     = each.key
+
+resource "bigip_ltm_pool_attachment" "pool_attachments" {
+  count = length(bigip_ltm_node.nodes)
+  pool  = bigip_ltm_pool.pool.name
+  node  = "${bigip_ltm_node.nodes[count.index].name}:80"
+
+  depends_on = [bigip_partition.partition, bigip_ltm_pool.pool]
 }
 
