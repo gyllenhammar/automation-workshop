@@ -36,7 +36,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"schemaVersion\": \"1.0.0\",\n    \"class\": \"Device\",\n    \"async\": true,\n    \"label\": \"Example 1NIC BIG-IP with Runtime-Init\",\n    \"Common\": {\n      \"class\": \"Tenant\",\n      \"My_DbVariables\": {\n        \"class\": \"DbVariables\",\n        \"ui.advisory.enabled\": true,\n        \"ui.advisory.color\": \"red\",\n        \"ui.advisory.text\": \"Configuration deployed with AS3. Do not make any change directly on the BIG-IP or those changes may be lost.\"\n\n      },\n      \"My_System\": {\n        \"class\": \"System\",\n        \"hostname\": \"agy-demo-1nic-0a73-f5vm01.local\",\n        \"cliInactivityTimeout\": 1200,\n        \"consoleInactivityTimeout\": 1200,\n        \"autoPhonehome\": false,\n        \"autoCheck\": true,\n        \"tmshAuditLog\": true,\n        \"guiAuditLog\": false,\n        \"mcpAuditLog\": \"enable\",\n        \"preserveOrigDhcpRoutes\": false,\n        \"guiSecurityBanner\": true,\n        \"guiSecurityBannerText\": \"Welcome to the BIG-IP Configuration Utility.\\n\\nLog in with your username and password using the fields on the left.\",\n        \"usernamePrompt\": \"Username\",\n        \"passwordPrompt\": \"Password\"\n      },\n      \"myNtp\": {\n        \"class\": \"NTP\",\n        \"servers\": [\n          \"0.pool.ntp.org\"\n        ],\n        \"timezone\": \"CET\"\n      },\n      \"myDns\": {\n        \"class\": \"DNS\",\n        \"nameServers\": [\n          \"168.63.129.16\"\n        ]\n      },\n      \"myProvisioning\": {\n        \"class\": \"Provision\",\n        \"ltm\": \"nominal\",\n        \"asm\": \"nominal\"\n      },\n      \"admin\": {\n        \"class\": \"User\",\n        \"partitionAccess\": {\n          \"all-partitions\": {\n            \"role\": \"admin\"\n          }\n        },\n        \"shell\": \"bash\",\n        \"keys\": [\n          \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgMAZfUFjYn2pKVKvaJtxKTw6w7I9qJGmPvxFHR4jBtnJrQVdW0LIVJvRbJLm0jgY4gL1iZ17JjyG4HWmj83Qv1qpvCucS5wwCD7GvnyzHYdRRCZNqtt3P5WH/gB9BdF4gW7GnswRUZYmHpayi8cMwKyprLwn9iy4f+TJfYbYDGnJAM2pdLHDnKumrG8iA10IlsfrvDJNi8yHly0JvAN1AuzfiqKnocZwvOrWI9OqSzUClvMuZn0wLosjySzgSlcHmnD2Yc5NRunrykiV7yoeIUKTA0yT5HhM1W35OtNKDUU4G+ClFacxutdDp5dipV7C5khw5Dabv9mHuOnzXLvIUKCiUBBcLfLSwqcLjJuqPJN60uIPWCm/JHVocAwO5sk1Hlms3raKUFdQB1x0TXUDEsKxqU8sLad7dTLqNwsMgGI1DL6lQoatmG41LvTJlOdYSMhYA+wV5SpD5+RIUpa7eNXTk/3RV56ddJGfYtT1W84yKV7BFPwEf9UbgQDO8Uec= a.gyllenhammar@X64K2JX6N7 \"\n        ],\n        \"userType\": \"regular\",\n        \"forceInitialPasswordChange\": false\n      },\n      \"bigipuser\": {\n        \"class\": \"User\",\n        \"partitionAccess\": {\n          \"all-partitions\": {\n            \"role\": \"admin\"\n          }\n        },\n        \"shell\": \"bash\",\n        \"keys\": [\n          \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgMAZfUFjYn2pKVKvaJtxKTw6w7I9qJGmPvxFHR4jBtnJrQVdW0LIVJvRbJLm0jgY4gL1iZ17JjyG4HWmj83Qv1qpvCucS5wwCD7GvnyzHYdRRCZNqtt3P5WH/gB9BdF4gW7GnswRUZYmHpayi8cMwKyprLwn9iy4f+TJfYbYDGnJAM2pdLHDnKumrG8iA10IlsfrvDJNi8yHly0JvAN1AuzfiqKnocZwvOrWI9OqSzUClvMuZn0wLosjySzgSlcHmnD2Yc5NRunrykiV7yoeIUKTA0yT5HhM1W35OtNKDUU4G+ClFacxutdDp5dipV7C5khw5Dabv9mHuOnzXLvIUKCiUBBcLfLSwqcLjJuqPJN60uIPWCm/JHVocAwO5sk1Hlms3raKUFdQB1x0TXUDEsKxqU8sLad7dTLqNwsMgGI1DL6lQoatmG41LvTJlOdYSMhYA+wV5SpD5+RIUpa7eNXTk/3RV56ddJGfYtT1W84yKV7BFPwEf9UbgQDO8Uec= a.gyllenhammar@X64K2JX6N7 \"\n        ],\n        \"userType\": \"regular\",\n        \"forceInitialPasswordChange\": false\n      }\n    }\n  }",
+							"raw": "{\"schemaVersion\": \"1.0.0\",\n    \"class\": \"Device\",\n    \"async\": true,\n    \"label\": \"Example 1NIC BIG-IP with Runtime-Init\",\n    \"Common\": {\n      \"class\": \"Tenant\",\n      \"My_DbVariables\": {\n        \"class\": \"DbVariables\",\n        \"ui.advisory.enabled\": true,\n        \"ui.advisory.color\": \"Yellow\",\n        \"ui.advisory.text\": \"Configuration deployed with AS3. Do not make any change directly on the BIG-IP or those changes may be lost.\"\n\n      },\n      \"My_System\": {\n        \"class\": \"System\",\n        \"hostname\": \"agy-demo-1nic-0a73-f5vm01.local\",\n        \"cliInactivityTimeout\": 1200,\n        \"consoleInactivityTimeout\": 1200,\n        \"autoPhonehome\": false,\n        \"autoCheck\": true,\n        \"tmshAuditLog\": true,\n        \"guiAuditLog\": false,\n        \"mcpAuditLog\": \"enable\",\n        \"preserveOrigDhcpRoutes\": false,\n        \"guiSecurityBanner\": true,\n        \"guiSecurityBannerText\": \"Welcome to the BIG-IP Configuration Utility.\\n\\nLog in with your username and password using the fields on the left.\",\n        \"usernamePrompt\": \"Username\",\n        \"passwordPrompt\": \"Password\"\n      },\n      \"myNtp\": {\n        \"class\": \"NTP\",\n        \"servers\": [\n          \"0.pool.ntp.org\"\n        ],\n        \"timezone\": \"CET\"\n      },\n      \"myDns\": {\n        \"class\": \"DNS\",\n        \"nameServers\": [\n          \"168.63.129.16\"\n        ]\n      },\n      \"myProvisioning\": {\n        \"class\": \"Provision\",\n        \"ltm\": \"nominal\",\n        \"asm\": \"nominal\"\n      },\n      \"admin\": {\n        \"class\": \"User\",\n        \"partitionAccess\": {\n          \"all-partitions\": {\n            \"role\": \"admin\"\n          }\n        },\n        \"shell\": \"bash\",\n        \"keys\": [\n          \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgMAZfUFjYn2pKVKvaJtxKTw6w7I9qJGmPvxFHR4jBtnJrQVdW0LIVJvRbJLm0jgY4gL1iZ17JjyG4HWmj83Qv1qpvCucS5wwCD7GvnyzHYdRRCZNqtt3P5WH/gB9BdF4gW7GnswRUZYmHpayi8cMwKyprLwn9iy4f+TJfYbYDGnJAM2pdLHDnKumrG8iA10IlsfrvDJNi8yHly0JvAN1AuzfiqKnocZwvOrWI9OqSzUClvMuZn0wLosjySzgSlcHmnD2Yc5NRunrykiV7yoeIUKTA0yT5HhM1W35OtNKDUU4G+ClFacxutdDp5dipV7C5khw5Dabv9mHuOnzXLvIUKCiUBBcLfLSwqcLjJuqPJN60uIPWCm/JHVocAwO5sk1Hlms3raKUFdQB1x0TXUDEsKxqU8sLad7dTLqNwsMgGI1DL6lQoatmG41LvTJlOdYSMhYA+wV5SpD5+RIUpa7eNXTk/3RV56ddJGfYtT1W84yKV7BFPwEf9UbgQDO8Uec= a.gyllenhammar@X64K2JX6N7 \"\n        ],\n        \"userType\": \"regular\",\n        \"forceInitialPasswordChange\": false\n      },\n      \"bigipuser\": {\n        \"class\": \"User\",\n        \"partitionAccess\": {\n          \"all-partitions\": {\n            \"role\": \"admin\"\n          }\n        },\n        \"shell\": \"bash\",\n        \"keys\": [\n          \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgMAZfUFjYn2pKVKvaJtxKTw6w7I9qJGmPvxFHR4jBtnJrQVdW0LIVJvRbJLm0jgY4gL1iZ17JjyG4HWmj83Qv1qpvCucS5wwCD7GvnyzHYdRRCZNqtt3P5WH/gB9BdF4gW7GnswRUZYmHpayi8cMwKyprLwn9iy4f+TJfYbYDGnJAM2pdLHDnKumrG8iA10IlsfrvDJNi8yHly0JvAN1AuzfiqKnocZwvOrWI9OqSzUClvMuZn0wLosjySzgSlcHmnD2Yc5NRunrykiV7yoeIUKTA0yT5HhM1W35OtNKDUU4G+ClFacxutdDp5dipV7C5khw5Dabv9mHuOnzXLvIUKCiUBBcLfLSwqcLjJuqPJN60uIPWCm/JHVocAwO5sk1Hlms3raKUFdQB1x0TXUDEsKxqU8sLad7dTLqNwsMgGI1DL6lQoatmG41LvTJlOdYSMhYA+wV5SpD5+RIUpa7eNXTk/3RV56ddJGfYtT1W84yKV7BFPwEf9UbgQDO8Uec= a.gyllenhammar@X64K2JX6N7 \"\n        ],\n        \"userType\": \"regular\",\n        \"forceInitialPasswordChange\": false\n      }\n    }\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -94,7 +94,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"class\": \"AS3\",\n  \"action\": \"deploy\",\n  \"persist\": true,\n  \"declaration\": {\n    \"class\": \"ADC\",\n    \"schemaVersion\": \"3.0.0\",\n    \"id\": \"urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d\",\n    \"label\": \"Sample 1\",\n    \"remark\": \"Simple HTTP Service with Round-Robin Load Balancing\",\n    \"Sample_01\": {\n      \"class\": \"Tenant\",\n      \"A1\": {\n        \"class\": \"Application\",\n        \"service\": {\n          \"class\": \"Service_HTTP\",\n          \"virtualAddresses\": [\n            \"10.0.1.10\"\n          ],\n          \"pool\": \"web_pool\"\n        },\n        \"web_pool\": {\n          \"class\": \"Pool\",\n          \"monitors\": [\n            \"http\"\n          ],\n          \"members\": [\n            {\n              \"servicePort\": 80,\n              \"serverAddresses\": [\n                \"192.0.1.10\",\n                \"192.0.1.11\"\n              ]\n            }\n          ]\n        }\n      }\n    }\n  }\n}",
+									"raw": "{\n  \"$schema\": \"https://raw.githubusercontent.com/F5Networks/f5-appsvcs-extension/main/schema/latest/as3-schema.json\",\n  \"class\": \"AS3\",\n  \"action\": \"deploy\",\n  \"persist\": true,\n  \"declaration\": {\n    \"class\": \"ADC\",\n    \"schemaVersion\": \"3.0.0\",\n    \"id\": \"urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d\",\n    \"label\": \"Sample 1\",\n    \"remark\": \"Simple HTTP Service with Round-Robin Load Balancing\",\n    \"Sample_01\": {\n      \"class\": \"Tenant\",\n      \"A1\": {\n        \"class\": \"Application\",\n        \"service\": {\n          \"class\": \"Service_HTTP\",\n          \"virtualAddresses\": [\n            \"10.0.1.10\"\n          ],\n          \"shareAddresses\": true,\n          \"pool\": \"web_pool\"\n        },\n        \"web_pool\": {\n          \"class\": \"Pool\",\n          \"monitors\": [\n            \"http\"\n          ],\n          \"members\": [\n            {\n              \"servicePort\": 80,\n              \"shareNodes\": true,\n              \"serverAddresses\": [\n                \"192.0.1.10\",\n                \"192.0.1.11\"\n              ]\n            }\n          ]\n        }\n      }\n    }\n  }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -117,12 +117,12 @@
 							"response": []
 						},
 						{
-							"name": "get as3 sample_01",
+							"name": "get as3",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_01",
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/",
 									"host": [
 										"{{big-ip-url}}"
 									],
@@ -131,7 +131,7 @@
 										"shared",
 										"appsvcs",
 										"declare",
-										"Sample_01"
+										""
 									]
 								}
 							},
@@ -228,7 +228,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/sample_01",
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_01",
 									"host": [
 										"{{big-ip-url}}"
 									],
@@ -237,7 +237,7 @@
 										"shared",
 										"appsvcs",
 										"declare",
-										"sample_01"
+										"Sample_01"
 									]
 								}
 							},
