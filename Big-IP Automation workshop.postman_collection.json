@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "980113f3-a736-43b4-999a-b7c407e23d41",
+		"name": "Big-IP Automation workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29302544"
+	},
+	"item": [
+		{
+			"name": "DO",
+			"item": [
+				{
+					"name": "DO info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{big-ip-url}}/mgmt/shared/declarative-onboarding/",
+							"host": [
+								"{{big-ip-url}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"declarative-onboarding",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DO post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"schemaVersion\": \"1.0.0\",\n    \"class\": \"Device\",\n    \"async\": true,\n    \"label\": \"Example 1NIC BIG-IP with Runtime-Init\",\n    \"Common\": {\n      \"class\": \"Tenant\",\n      \"My_DbVariables\": {\n        \"class\": \"DbVariables\",\n        \"ui.advisory.enabled\": true,\n        \"ui.advisory.color\": \"red\",\n        \"ui.advisory.text\": \"Configuration deployed with AS3. Do not make any change directly on the BIG-IP or those changes may be lost.\"\n\n      },\n      \"My_System\": {\n        \"class\": \"System\",\n        \"hostname\": \"agy-demo-1nic-0a73-f5vm01.local\",\n        \"cliInactivityTimeout\": 1200,\n        \"consoleInactivityTimeout\": 1200,\n        \"autoPhonehome\": false,\n        \"autoCheck\": true,\n        \"tmshAuditLog\": true,\n        \"guiAuditLog\": false,\n        \"mcpAuditLog\": \"enable\",\n        \"preserveOrigDhcpRoutes\": false,\n        \"guiSecurityBanner\": true,\n        \"guiSecurityBannerText\": \"Welcome to the BIG-IP Configuration Utility.\\n\\nLog in with your username and password using the fields on the left.\",\n        \"usernamePrompt\": \"Username\",\n        \"passwordPrompt\": \"Password\"\n      },\n      \"myNtp\": {\n        \"class\": \"NTP\",\n        \"servers\": [\n          \"0.pool.ntp.org\"\n        ],\n        \"timezone\": \"CET\"\n      },\n      \"myDns\": {\n        \"class\": \"DNS\",\n        \"nameServers\": [\n          \"168.63.129.16\"\n        ]\n      },\n      \"myProvisioning\": {\n        \"class\": \"Provision\",\n        \"ltm\": \"nominal\",\n        \"asm\": \"nominal\"\n      },\n      \"admin\": {\n        \"class\": \"User\",\n        \"partitionAccess\": {\n          \"all-partitions\": {\n            \"role\": \"admin\"\n          }\n        },\n        \"shell\": \"bash\",\n        \"keys\": [\n          \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgMAZfUFjYn2pKVKvaJtxKTw6w7I9qJGmPvxFHR4jBtnJrQVdW0LIVJvRbJLm0jgY4gL1iZ17JjyG4HWmj83Qv1qpvCucS5wwCD7GvnyzHYdRRCZNqtt3P5WH/gB9BdF4gW7GnswRUZYmHpayi8cMwKyprLwn9iy4f+TJfYbYDGnJAM2pdLHDnKumrG8iA10IlsfrvDJNi8yHly0JvAN1AuzfiqKnocZwvOrWI9OqSzUClvMuZn0wLosjySzgSlcHmnD2Yc5NRunrykiV7yoeIUKTA0yT5HhM1W35OtNKDUU4G+ClFacxutdDp5dipV7C5khw5Dabv9mHuOnzXLvIUKCiUBBcLfLSwqcLjJuqPJN60uIPWCm/JHVocAwO5sk1Hlms3raKUFdQB1x0TXUDEsKxqU8sLad7dTLqNwsMgGI1DL6lQoatmG41LvTJlOdYSMhYA+wV5SpD5+RIUpa7eNXTk/3RV56ddJGfYtT1W84yKV7BFPwEf9UbgQDO8Uec= a.gyllenhammar@X64K2JX6N7 \"\n        ],\n        \"userType\": \"regular\",\n        \"forceInitialPasswordChange\": false\n      },\n      \"bigipuser\": {\n        \"class\": \"User\",\n        \"partitionAccess\": {\n          \"all-partitions\": {\n            \"role\": \"admin\"\n          }\n        },\n        \"shell\": \"bash\",\n        \"keys\": [\n          \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgMAZfUFjYn2pKVKvaJtxKTw6w7I9qJGmPvxFHR4jBtnJrQVdW0LIVJvRbJLm0jgY4gL1iZ17JjyG4HWmj83Qv1qpvCucS5wwCD7GvnyzHYdRRCZNqtt3P5WH/gB9BdF4gW7GnswRUZYmHpayi8cMwKyprLwn9iy4f+TJfYbYDGnJAM2pdLHDnKumrG8iA10IlsfrvDJNi8yHly0JvAN1AuzfiqKnocZwvOrWI9OqSzUClvMuZn0wLosjySzgSlcHmnD2Yc5NRunrykiV7yoeIUKTA0yT5HhM1W35OtNKDUU4G+ClFacxutdDp5dipV7C5khw5Dabv9mHuOnzXLvIUKCiUBBcLfLSwqcLjJuqPJN60uIPWCm/JHVocAwO5sk1Hlms3raKUFdQB1x0TXUDEsKxqU8sLad7dTLqNwsMgGI1DL6lQoatmG41LvTJlOdYSMhYA+wV5SpD5+RIUpa7eNXTk/3RV56ddJGfYtT1W84yKV7BFPwEf9UbgQDO8Uec= a.gyllenhammar@X64K2JX6N7 \"\n        ],\n        \"userType\": \"regular\",\n        \"forceInitialPasswordChange\": false\n      }\n    }\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{big-ip-url}}/mgmt/shared/declarative-onboarding/",
+							"host": [
+								"{{big-ip-url}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"declarative-onboarding",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DO get task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{big-ip-url}}/mgmt/shared/declarative-onboarding/task/511f2268-7d1d-47e1-9c1e-5d72de28d22e",
+							"host": [
+								"{{big-ip-url}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"declarative-onboarding",
+								"task",
+								"511f2268-7d1d-47e1-9c1e-5d72de28d22e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AS3",
+			"item": [
+				{
+					"name": "per-tenant",
+					"item": [
+						{
+							"name": "post as3 sample_01",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"class\": \"AS3\",\n  \"action\": \"deploy\",\n  \"persist\": true,\n  \"declaration\": {\n    \"class\": \"ADC\",\n    \"schemaVersion\": \"3.0.0\",\n    \"id\": \"urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d\",\n    \"label\": \"Sample 1\",\n    \"remark\": \"Simple HTTP Service with Round-Robin Load Balancing\",\n    \"Sample_01\": {\n      \"class\": \"Tenant\",\n      \"A1\": {\n        \"class\": \"Application\",\n        \"service\": {\n          \"class\": \"Service_HTTP\",\n          \"virtualAddresses\": [\n            \"10.0.1.10\"\n          ],\n          \"pool\": \"web_pool\"\n        },\n        \"web_pool\": {\n          \"class\": \"Pool\",\n          \"monitors\": [\n            \"http\"\n          ],\n          \"members\": [\n            {\n              \"servicePort\": 80,\n              \"serverAddresses\": [\n                \"192.0.1.10\",\n                \"192.0.1.11\"\n              ]\n            }\n          ]\n        }\n      }\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get as3 sample_01",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_01",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"Sample_01"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get as3 sample_01 full",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_01?show=full",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"Sample_01"
+									],
+									"query": [
+										{
+											"key": "show",
+											"value": "full"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "patch as3 sample_01",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/Sample_01/A1/web_pool/members/0/serverAddresses/-\",\n    \"value\": \"192.0.1.172\"\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post as3 sample_01 A2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"class\": \"AS3\",\n  \"action\": \"deploy\",\n  \"persist\": true,\n  \"declaration\": {\n    \"class\": \"ADC\",\n    \"schemaVersion\": \"3.0.0\",\n    \"id\": \"urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d\",\n    \"label\": \"Sample 1\",\n    \"remark\": \"Simple HTTP Service with Round-Robin Load Balancing\",\n    \"Sample_01\": {\n      \"class\": \"Tenant\",\n      \"A2\": {\n        \"class\": \"Application\",\n        \"service\": {\n          \"class\": \"Service_HTTP\",\n          \"virtualAddresses\": [\n            \"10.0.100.2\"\n          ],\n          \"pool\": \"web_pool\"\n        },\n        \"web_pool\": {\n          \"class\": \"Pool\",\n          \"monitors\": [\n            \"http\"\n          ],\n          \"members\": [\n            {\n              \"servicePort\": 80,\n              \"serverAddresses\": [\n                \"192.10.1.10\",\n                \"192.10.1.11\"\n              ]\n            }\n          ]\n        }\n      }\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete as3 sample_01",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/sample_01",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"sample_01"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "per-app",
+					"item": [
+						{
+							"name": "post as3 per-app Sample_02",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"per-app-declaration\",\n    \"schemaVersion\": \"3.50.0\",\n    \"controls\": {\n        \"class\": \"Controls\",\n        \"logLevel\": \"debug\",\n        \"trace\": true\n    },\n    \"Application1\": {\n        \"class\": \"Application\",\n        \"service1\": {\n            \"class\": \"Service_HTTP\",\n            \"virtualAddresses\": [\n                \"10.2.1.7\"\n            ],\n            \"shareAddresses\": true,\n            \"virtualPort\": 8080,\n            \"pool\": \"pool\"\n        },\n        \"pool\": {\n            \"class\": \"Pool\",\n            \"members\": [\n                {\n                    \"servicePort\": 80,\n                    \"shareNodes\": true,\n                    \"serverAddresses\": [\n                        \"10.0.0.1\",\n                        \"10.0.0.2\",\n                        \"10.0.0.3\"\n                    ]\n                }\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_02/applications",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"Sample_02",
+										"applications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post as3 per-app Sample_02 Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"per-app-declaration\",\n    \"schemaVersion\": \"3.50.0\",\n    \"controls\": {\n        \"class\": \"Controls\",\n        \"logLevel\": \"debug\",\n        \"trace\": true\n    },\n    \"Application2\": {\n        \"class\": \"Application\",\n        \"service2\": {\n            \"class\": \"Service_HTTP\",\n            \"virtualAddresses\": [\n                \"10.2.1.7\"\n            ],\n            \"shareAddresses\": true,\n            \"virtualPort\": 8081,\n            \"pool\": \"pool\"\n        },\n        \"pool\": {\n            \"class\": \"Pool\",\n            \"members\": [\n                {\n                    \"servicePort\": 80,\n                    \"shareNodes\": true,\n                    \"serverAddresses\": [\n                        \"10.0.0.1\",\n                        \"10.0.0.2\",\n                        \"10.0.0.3\"\n                    ]\n                }\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_02/applications",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"Sample_02",
+										"applications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get as3 per-app Sample_01",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_01",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"Sample_01"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete as3 per-app application1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/declare/Sample_01",
+									"host": [
+										"{{big-ip-url}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"declare",
+										"Sample_01"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get as3 settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/settings",
+							"host": [
+								"{{big-ip-url}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"appsvcs",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get as3 info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{big-ip-url}}/mgmt/shared/appsvcs/info",
+							"host": [
+								"{{big-ip-url}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"appsvcs",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "big-ip-url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
